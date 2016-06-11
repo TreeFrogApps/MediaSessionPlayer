@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MusicPlayer.MVP.View.Activity.MainActivity">
+        <activity android:name=".MusicPlayer.MVP.View.Activity.MusicActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,16 +25,33 @@
             </intent-filter>
         </activity>
 
+        <!-- Music service, runs in separate process -->
         <service
             android:name=".MusicPlayer.MusicService.MusicService"
-            android:process=":MusicService">
+            android:process=":music_service"
+            android:exported="false">
 
             <intent-filter>
                 <action android:name="com.treefrogapps.mediasessionplayer.MEDIA_ACTION_TOGGLE_PLAYBACK"/>
-
+                <action android:name="com.treefrogapps.mediasessionplayer.MEDIA_ACTION_STOP"/>
+                <action android:name="com.treefrogapps.mediasessionplayer.MEDIA_ACTION_PREVIOUS"/>
+                <action android:name="com.treefrogapps.mediasessionplayer.MEDIA_ACTION_NEXT"/>
+                <action android:name="com.treefrogapps.mediasessionplayer.MEDIA_ACTION_SKIP_TO"/>
             </intent-filter>
-
         </service>
+
+        <!-- Media Session Receiver : Required below Lollipop. Used in conjunction with
+             MediaSessionCompat to handle hardware media buttons and system gestures linked to MediaSession commands
+             Also use for android.media.AUDIO_BECOMING_NOISY -->
+        <receiver android:name=".MusicPlayer.MusicService.MediaSession.MediaSessionReceiver"
+            android:process=":music_service"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+                <action android:name="android.media.AUDIO_BECOMING_NOISY" />
+            </intent-filter>
+        </receiver>
 
     </application>
 

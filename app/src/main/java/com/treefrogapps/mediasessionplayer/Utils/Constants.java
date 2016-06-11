@@ -6,7 +6,7 @@ package com.treefrogapps.mediasessionplayer.Utils;
 public class Constants {
 
     /**
-     * MEDIA PLAYBACK ACTIONS - MUSIC SERVICE
+     * MEDIA PLAYBACK ACTIONS - MUSIC SERVICE - USED FOR IMPLICITLY CALLING SERVICE
      */
     public static final String MEDIA_ACTION_TOGGLE_PLAYBACK = "com.treefrogapps.mediasessionplayer.MEDIA_ACTION_TOGGLE_PLAYBACK";
     public static final String MEDIA_ACTION_STOP = "com.treefrogapps.mediasessionplayer.MEDIA_ACTION_STOP";

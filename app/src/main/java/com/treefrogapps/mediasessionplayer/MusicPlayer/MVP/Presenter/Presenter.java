@@ -53,21 +53,21 @@ public class Presenter extends GenericPresenter<MVP.IPresenter, MVP.IModel, Mode
 
 
 
+    /**
+     * Contexts
+     */
     @Override
     public Context getActivityContext() {
-        return null;
+        return mIView.get().getActivityContext();
     }
 
     @Override
     public Context getAppContext() {
-        return null;
+        return mIView.get().getAppContext();
     }
 
     @Override
     public LoaderManager getLoader() {
-        return null;
+        return mIView.get().getLoader();
     }
-
-
-
 }
