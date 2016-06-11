@@ -24,8 +24,6 @@ public class MusicService extends Service
 
     private static final String TAG = MusicService.class.getSimpleName();
 
-    private PowerManager mPowerManager;
-    private PowerManager.WakeLock mWakeLock;
     private MediaSessionCompat mMediaSessionCompat;
     private PlaybackStateCompat mPlaybackStateCompat;
     private MediaPlayer mMediaPlayer;
